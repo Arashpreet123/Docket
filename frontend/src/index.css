@@ -1,0 +1,63 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #1c1917;
+  --ink-light: #44403c;
+  --ink-faint: #78716c;
+  --paper: #faf8f5;
+  --paper-aged: #f0ece4;
+  --paper-dark: #e8e2d9;
+  --accent: #c2410c;
+  --accent-light: #ea580c;
+  --accent-pale: #fff7ed;
+  --gold: #b45309;
+  --success: #15803d;
+  --rule: #d6cfc4;
+  --shadow: rgba(28, 25, 23, 0.08);
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ledger line texture background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    var(--rule) 31px,
+    var(--rule) 32px
+  );
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+input, textarea, select {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
