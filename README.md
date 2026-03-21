@@ -170,3 +170,32 @@ Without Nginx:
 * Multiple exposed ports increase the attack surface
 * Clients must know different service URLs
 * No central entry point for routing requests
+
+## Updated Architecture with Gunicorn
+```
+Browser -> Nginx (reverse proxy) -> Django app -> postgress
+```
+
+Before we are using the development server:
+
+```
+python manage.py runserver
+```
+
+The problems with using Django ```runserver```
+* Single-threaded (handles one request at a time)
+* Not optimized for performance
+* No process management
+* Not secure for production
+* 
+
+
+
+
+## Load Testing App
+Note: Since this is running locally, your machine will bottleneck first.
+### API Testing Writes
+
+
+### Spike Testing
+
