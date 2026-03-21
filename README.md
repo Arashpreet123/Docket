@@ -154,9 +154,7 @@ Create a superuser to access the admin panel at `http://localhost:8000/admin/`:
 docker compose exec backend python manage.py createsuperuser
 ```
 
-## Nginx added
-
-## Updated Architecture
+## Updated Architecture with Nginx
 ```
 Browser
    │
