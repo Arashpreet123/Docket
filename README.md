@@ -153,3 +153,21 @@ Create a superuser to access the admin panel at `http://localhost:8000/admin/`:
 ```bash
 docker compose exec backend python manage.py createsuperuser
 ```
+
+## Nginx added
+
+## Updated Architecture
+Browser
+   │
+   └── :80 → Nginx (reverse proxy)
+              │
+              ├── /      → React (frontend:3000)
+              └── /api/  → Django (backend:8000)
+                               │
+                               └── PostgreSQL (db:5432)
+
+Nginx acts as a gateway - clients never communicate directly with backend services.
+Without Nginx:
+* Multiple exposed ports increase the attack surface
+* Clients must know different service URLs
+* No central entry point for routing requests
