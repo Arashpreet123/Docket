@@ -157,6 +157,7 @@ docker compose exec backend python manage.py createsuperuser
 ## Nginx added
 
 ## Updated Architecture
+```
 Browser
    │
    └── :80 → Nginx (reverse proxy)
@@ -165,7 +166,7 @@ Browser
               └── /api/  → Django (backend:8000)
                                │
                                └── PostgreSQL (db:5432)
-
+```
 Nginx acts as a gateway - clients never communicate directly with backend services.
 Without Nginx:
 * Multiple exposed ports increase the attack surface
